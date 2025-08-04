@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "home_aid_internal",
-    "slug": "home_aid_internal",
+    "slug": "home-aid-internal",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -16,7 +16,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.home_aid.internal"
     },
     "web": {
       "bundler": "metro",
@@ -37,6 +38,13 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "d7611b65-78c6-48d6-b5cd-f89c342906f8"
+      }
+    },
+    "owner": "home_aid"
   }
 }

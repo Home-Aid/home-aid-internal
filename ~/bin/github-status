@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# GitHub Account Status Checker
+echo "📊 Current GitHub Account Status"
+echo "================================"
+
+# Check Git configuration
+echo "🔧 Git Configuration:"
+echo "   Name: $(git config --global user.name)"
+echo "   Email: $(git config --global user.email)"
+
+# Check GitHub CLI status
+if command -v gh &> /dev/null; then
+    echo ""
+    echo "📝 GitHub CLI Status:"
+    if gh auth status &> /dev/null; then
+        gh auth status
+    else
+        echo "   Not authenticated with GitHub CLI"
+    fi
+else
+    echo ""
+    echo "📝 GitHub CLI: Not installed"
+fi
+
+# Check SSH keys
+echo ""
+echo "🔑 SSH Keys in SSH Agent:"
+ssh-add -l 2>/dev/null || echo "   No SSH keys loaded"
+
+# Check if we can identify which account is active
+echo ""
+echo "🎯 Account Detection:"
+if [[ "$(git config --global user.email)" == *"personal"* ]] || [[ "$(git config --global user.email)" == *"gmail"* ]]; then
+    echo "   Current: Personal Account"
+elif [[ "$(git config --global user.email)" == *"work"* ]] || [[ "$(git config --global user.email)" == *"company"* ]]; then
+    echo "   Current: Work Account"
+else
+    echo "   Current: Unknown Account"
+fi 

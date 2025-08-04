@@ -1,0 +1,20 @@
+# GitHub Account Configuration Template
+# Copy this file to ~/.github-accounts and customize with your actual details
+
+# Personal Account Configuration
+PERSONAL_NAME="Your Personal Name"
+PERSONAL_EMAIL="your.personal.email@example.com"
+PERSONAL_SSH_KEY="~/.ssh/id_rsa_personal"
+PERSONAL_TOKEN="your_personal_github_token"
+
+# Work Account Configuration  
+WORK_NAME="Your Work Name"
+WORK_EMAIL="your.work.email@company.com"
+WORK_SSH_KEY="~/.ssh/id_rsa_work"
+WORK_TOKEN="your_work_github_token"
+
+# Instructions:
+# 1. Copy this file: cp ~/bin/github-config ~/.github-accounts
+# 2. Edit ~/.github-accounts with your actual account details
+# 3. The scripts will automatically use these configurations
+# 4. Keep your tokens secure and never commit them to version control 

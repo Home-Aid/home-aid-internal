@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# GitHub Personal Account Configuration
+echo "🔄 Switching to Personal GitHub Account..."
+
+# Set Git global configuration for personal account
+git config --global user.name "Your Personal Name"
+git config --global user.email "your.personal.email@example.com"
+
+# Set GitHub CLI configuration for personal account
+if command -v gh &> /dev/null; then
+    echo "📝 Updating GitHub CLI configuration..."
+    # You can set a specific token for personal account if needed
+    # export GITHUB_TOKEN="your_personal_github_token"
+fi
+
+# Update SSH config to use personal key (if you have different SSH keys)
+# This assumes you have different SSH keys for personal and work
+if [ -f ~/.ssh/id_rsa_personal ]; then
+    echo "🔑 Setting SSH key to personal..."
+    ssh-add -D 2>/dev/null  # Remove all keys
+    ssh-add ~/.ssh/id_rsa_personal 2>/dev/null
+fi
+
+echo "✅ Switched to Personal GitHub Account"
+echo "   Name: $(git config --global user.name)"
+echo "   Email: $(git config --global user.email)" 
